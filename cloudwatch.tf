@@ -16,6 +16,8 @@ resource "aws_cloudwatch_metric_alarm" "alarm_CPUUtilization" {
   alarm_actions             = ["${var.sns}"]
   ok_actions                = ["${var.sns}"]
   insufficient_data_actions = []
+
+  count = "${var.enable_monitoring_alerts}"
 }
 
 resource "aws_cloudwatch_metric_alarm" "alarm_FreeStorageSpace" {
@@ -36,6 +38,8 @@ resource "aws_cloudwatch_metric_alarm" "alarm_FreeStorageSpace" {
   alarm_actions             = ["${var.sns}"]
   ok_actions                = ["${var.sns}"]
   insufficient_data_actions = []
+
+  count = "${var.enable_monitoring_alerts}"
 }
 
 resource "aws_cloudwatch_metric_alarm" "alarm_FreeableMemory" {
@@ -56,4 +60,6 @@ resource "aws_cloudwatch_metric_alarm" "alarm_FreeableMemory" {
   alarm_actions             = ["${var.sns}"]
   ok_actions                = ["${var.sns}"]
   insufficient_data_actions = []
+
+  count = "${var.enable_monitoring_alerts}"
 }

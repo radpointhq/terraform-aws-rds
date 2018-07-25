@@ -227,3 +227,7 @@ variable "period" {
 variable "sns" {
   default = ""
 }
+
+variable "enable_monitoring_alerts" {
+  default = true
+}
