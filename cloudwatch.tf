@@ -29,11 +29,12 @@ resource "aws_cloudwatch_metric_alarm" "alarm_FreeStorageSpace" {
 
   comparison_operator       = "LessThanOrEqualToThreshold"
   evaluation_periods        = "5"
+  datapoints_to_alarm       = "5"
   metric_name               = "FreeStorageSpace"
   namespace                 = "AWS/RDS"
   period                    = "${var.period}"
   statistic                 = "Maximum"
-  threshold                 = "500000000"
+  threshold                 = "${var.rds_cw_FreeStorageSpace}"
   alarm_description         = "Low FreeStorageSpace on ${terraform.env} ${var.rds_name}"
   alarm_actions             = ["${var.sns}"]
   ok_actions                = ["${var.sns}"]

@@ -231,3 +231,7 @@ variable "sns" {
 variable "enable_monitoring_alerts" {
   default = true
 }
+
+variable "rds_cw_FreeStorageSpace" {
+  default = "500000000"
+}
